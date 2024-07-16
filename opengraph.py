@@ -15,9 +15,8 @@ def fetch_metadata(url):
         data = response.json()
         print(data)
         return data['data']
-    else:
-        print(response.status_code)
-        return {}
+    print(response.status_code)
+    return {}
 
 # To manually test, please uncomment the following lines and run `python opengraph.py`:
 # import pprint
