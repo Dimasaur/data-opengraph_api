@@ -9,13 +9,14 @@ def fetch_metadata(url):
     """
     Returns the "data" dictionary of OpenGraph metadata found in HTML of given url
     """
-    url = 'https://opengraph.lewagon.com/?url='
-    response = requests.get(url)
+    full_url = 'https://opengraph.lewagon.com/?url=' + url
+    response = requests.get(full_url)
     if response.status_code == 200:
-        data = response.json()['data']
+        data = response.json()
         print(data)
-        return data
+        return data['data']
     else:
+        print(response.status_code)
         return {}
 
 # To manually test, please uncomment the following lines and run `python opengraph.py`:
